@@ -2,6 +2,17 @@
 layout: default
 ---
 
+<div class="archive-nav">
+	Archive:  
+{% for post in site.posts %}
+  {% assign currentdate = post.date | date: "%Y" %}
+  {% if currentdate != date %}
+  <a href="strain-archive.html#y{{ currentdate }}">{{ currentdate }}</a>&nbsp;
+    {% assign date = currentdate %} 
+  {% endif %}
+{% endfor %}
+</div><!-- .archive-nav --> 
+
 <div class="cats">
     {{ content }}
 
